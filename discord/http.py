@@ -300,22 +300,7 @@ def handle_message_parameters(
 
     return MultipartParameters(payload=payload, multipart=multipart, files=files)
 
-
 INTERNAL_API_VERSION: int = 10
-
-
-def _set_api_version(value: int):
-    global INTERNAL_API_VERSION
-
-    if not isinstance(value, int):
-        raise TypeError(f'expected int not {value.__class__.__name__}')
-
-    if value not in (9, 10):
-        raise ValueError(f'expected either 9 or 10 not {value}')
-
-    INTERNAL_API_VERSION = value
-    Route.BASE = f'https://discord.com/api/v{value}'
-
 
 class Route:
     BASE: ClassVar[str] = 'https://discord.com/api/v10'
@@ -562,7 +547,7 @@ class HTTPClient:
         self.use_clock: bool = not unsync_clock
         self.max_ratelimit_timeout: Optional[float] = max(30.0, max_ratelimit_timeout) if max_ratelimit_timeout else None
         self.invalids = 0
-        user_agent = 'DiscordBot (https://github.com/cop-discord/disdick {0}) Python/{1[0]}.{1[1]} aiohttp/{2}'
+        user_agent = 'DiscordBot (https://github.com/nxyystore/disball) {0}) Python/{1[0]}.{1[1]} aiohttp/{2}'
         self.user_agent: str = user_agent.format(__version__, sys.version_info, aiohttp.__version__)
 
     def clear(self) -> None:
@@ -825,16 +810,16 @@ class HTTPClient:
                         self.invalids+=1
                         if self.anti_cloudflare_ban == True:
                             if self.redis != None:
-                                d=await self.redis.ratelimited('invalidss',9950,6000,1)
+                                d = await self.redis.ratelimited('invalidss', 9950, 6000, 1)
                                 if d == True:
                                     if local_addr is not None: 
                                         await self.change_back()
                                     raise InvalidRatelimit(int(await self.redis.ttl(self.redis.rl_keys['invalidss'])))
                             else:
-                                d=await self.invalid_ratelimiter.ratelimit("invalids",self.invalid_limit,600)
+                                d = await self.invalid_ratelimiter.ratelimit("invalids", self.invalid_limit, 600)
                                 if d == True:
-                                    v=self.invalid_ratelimiter
-                                    time_remaining=(v.delete['invalids']['last']+v.delete['invalids']['bucket'])-int(datetime.datetime.now().timestamp())
+                                    v = self.invalid_ratelimiter
+                                    time_remaining=(v.delete['invalids']['last'] + v.delete['invalids']['bucket']) - int(datetime.datetime.now().timestamp())
                                     if local_addr is not None: 
                                         await self.change_back()
                                     raise InvalidRatelimit(time_remaining)
@@ -897,7 +882,7 @@ class HTTPClient:
     async def static_login(self, token: str) -> user.User:
         # Necessary to get aiohttp to stop complaining about session creation
         if self.connector is MISSING:
-            self.connector = aiohttp.TCPConnector(family=socket.AF_INET,limit=0,resolver=aiohttp.resolver.AsyncResolver(),local_addr=self.local_addr)
+            self.connector = aiohttp.TCPConnector(family=socket.AF_INET, limit=0, resolver=aiohttp.resolver.AsyncResolver(), local_addr=self.local_addr)
 
         self.__session = aiohttp.ClientSession(
             connector=self.connector,
