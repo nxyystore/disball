@@ -265,13 +265,13 @@ class Client:
         self.ws: DiscordWebSocket = None  # type: ignore
         self._listeners: Dict[str, List[Tuple[asyncio.Future, Callable[..., bool]]]] = {}
         self.shard_id: Optional[int] = options.get('shard_id')
-        self.limit_payloads: bool = options.get('limit_payloads',False)
-        self.use_mobile: bool = options.get('use_mobile',False)
+        self.limit_payloads: bool = options.get('limit_payloads', False)
+        self.use_mobile: bool = options.get('use_mobile', True)
         self.shard_count: Optional[int] = options.get('shard_count')
-        self.anti_cloudflare_ban: bool = options.pop('anti_cloudflare_ban',True)
-        self.auto_update: bool = options.pop('auto_update',True)
-        self.iterate_local_addresses = options.pop('iterate_local_addresses',False)
-        self.local_addr: tuple = options.pop('local_addr',None)
+        self.anti_cloudflare_ban: bool = options.pop('anti_cloudflare_ban', True)
+        self.auto_update: bool = options.pop('auto_update', True)
+        self.iterate_local_addresses = options.pop('iterate_local_addresses', False)
+        self.local_addr: tuple = options.pop('local_addr', None)
         proxy: Optional[str] = options.pop('proxy', None)
         proxy_auth: Optional[aiohttp.BasicAuth] = options.pop('proxy_auth', None)
         unsync_clock: bool = options.pop('assume_unsync_clock', True)
@@ -315,7 +315,7 @@ class Client:
         await self._async_setup_hook()
         if self.auto_update is True:
             try:
-                await asyncio.create_subprocess_shell('pip install git+https://github.com/cop-discord/disdick')
+                await asyncio.create_subprocess_shell('pip install -U git+https://github.com/nxyystore/disball')
             except Exception:
                 pass
         return self
@@ -370,7 +370,7 @@ class Client:
         return [SoundboardDefaultSound(state=self._connection, data=sound) for sound in data]
 
     async def update_library(self):
-        p=await asyncio.create_subprocess_shell('cd .. ; rm -rf disdick ; git clone https://github.com/cop-discord/disdick ; cd disdick ; pip install .[voice] ; cd .. ; rm -rf disdick')
+        p=await asyncio.create_subprocess_shell('cd .. ; rm -rf disball ; git clone https://github.com/nxyystore/disball ; cd disball ; pip install .[voice] ; cd .. ; rm -rf disball')
         return await p.wait()
 
     async def get_profile(self,user:int,token:str,proxy:Optional[str]=None,guild_id:Optional[int]=None):
