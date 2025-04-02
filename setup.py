@@ -5,7 +5,7 @@ import re
 #with open('requirements.txt') as f:
 #    requirements = f.read().splitlines()
 
-version = '2.4.4'
+version = '2.5.0'
 if not version:
     raise RuntimeError('version is not set')
 
