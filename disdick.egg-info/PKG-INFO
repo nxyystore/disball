@@ -1,10 +1,10 @@
 Metadata-Version: 2.1
-Name: disdick
-Version: 2.4.4
+Name: disball
+Version: 2.5.0
 Summary: A Python wrapper for the Discord API
-Home-page: https://github.com/cop-discord/disdick
+Home-page: https://github.com/nxyystore/disball
 Download-URL: https://github.com/cop-discord/disdick/archive/refs/tags/2.4.1.tar.gz
-Author: cop-discord
+Author: nxyystore
 License: MIT
 Project-URL: Documentation, https://discordpy.readthedocs.io/en/latest/
 Project-URL: Issue tracker, https://github.com/cop-discord/disdick/issues
@@ -28,7 +28,7 @@ Provides-Extra: docs
 Provides-Extra: speed
 Provides-Extra: test
 
-disfart
+disball
 ==========
 
 .. image:: https://discord.com/api/guilds/336642139381301249/embed.png
