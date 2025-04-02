@@ -1,20 +1,18 @@
 Metadata-Version: 2.1
 Name: disball
 Version: 2.5.0
-Summary: A Python wrapper for the Discord API
+Summary: shitty wrapper lol
 Home-page: https://github.com/nxyystore/disball
-Download-URL: https://github.com/cop-discord/disdick/archive/refs/tags/2.4.1.tar.gz
+Download-URL: https://github.com/nxyystore/disball/archive/refs/tags/2.5.0.tar.gz
 Author: nxyystore
 License: MIT
 Project-URL: Documentation, https://discordpy.readthedocs.io/en/latest/
-Project-URL: Issue tracker, https://github.com/cop-discord/disdick/issues
+Project-URL: Issue tracker, https://github.com/nxyystore/disball/issues
 Classifier: Development Status :: 5 - Production/Stable
 Classifier: License :: OSI Approved :: MIT License
 Classifier: Intended Audience :: Developers
 Classifier: Natural Language :: English
 Classifier: Operating System :: OS Independent
-Classifier: Programming Language :: Python :: 3.8
-Classifier: Programming Language :: Python :: 3.9
 Classifier: Programming Language :: Python :: 3.10
 Classifier: Topic :: Internet
 Classifier: Topic :: Software Development :: Libraries
@@ -65,10 +63,10 @@ To install the library without full voice support, you can just run the followin
 .. code:: sh
 
     # Linux/macOS
-    python3 -m pip install -U git+https://github.com/cop-discord/disfart
+    python3 -m pip install -U git+https://github.com/nxyystore/disball
 
     # Windows
-    py -3 -m pip install -U git+https://github.com/cop-discord/disfart
+    py -3 -m pip install -U git+https://github.com/nxyystore/disball
 
 Otherwise to get voice support you should run the following command:
 
@@ -77,7 +75,7 @@ To install the development version, do the following:
 
 .. code:: sh
 
-    $ git clone https://github.com/cop-discord/disfart
+    $ git clone https://github.com/nxyystore/disball
     $ cd disfart
     $ python3 -m pip install -U .[voice]
 

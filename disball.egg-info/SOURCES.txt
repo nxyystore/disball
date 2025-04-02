@@ -123,8 +123,8 @@ discord/ui/view.py
 discord/webhook/__init__.py
 discord/webhook/async_.py
 discord/webhook/sync.py
-disdick.egg-info/PKG-INFO
-disdick.egg-info/SOURCES.txt
-disdick.egg-info/dependency_links.txt
-disdick.egg-info/requires.txt
-disdick.egg-info/top_level.txt
+disball.egg-info/PKG-INFO
+disball.egg-info/SOURCES.txt
+disball.egg-info/dependency_links.txt
+disball.egg-info/requires.txt
+disball.egg-info/top_level.txt
