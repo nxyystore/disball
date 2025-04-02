@@ -79,12 +79,15 @@ class Punishments:
 		self.futures[hash] = future
 		return True
 
-	async def decide_punishment(self, guild: Guild, amount: int) -> typing.Optional[str]:
-		"""Decide punishment based on given amount of infractions."""
-		for infractions, punishment in sorted(self.thresholds[guild.id].items(), reverse=True):
-			if amount >= infractions:
-				return punishment
-		return None
+	async def decide_punishment(self, guild: Guild, amount: int):
+		ret = None
+		for s in sorted(self.thresholds[guild.id].keys(), reverse=True):
+			if amount >= key:
+				ret = key
+				break
+		if ret:
+			return self.thresholds[guild.id][ret]
+		return ret
 
 	async def punish(self, guild: Guild, member: Member, *, reason: str = None):
 		if guild.id in self.thresholds:
