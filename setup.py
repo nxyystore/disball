@@ -5,7 +5,7 @@ import re
 #with open('requirements.txt') as f:
 #    requirements = f.read().splitlines()
 
-version = '2.5.0'
+version = '2.5.1'
 if not version:
     raise RuntimeError('version is not set')
 
@@ -82,7 +82,7 @@ setup(
     include_package_data=True,
     install_requires=['aiohttp','aiodns','orjson','typing_extensions','psutil','durations_nlp','fast_string_match'],
     extras_require=extras_require,
-    download_url='https://github.com/nxyystore/disball/archive/refs/tags/2.5.0.tar.gz',
+    download_url='https://github.com/nxyystore/disball/archive/refs/tags/2.5.1.tar.gz',
     python_requires='>=3.10.0',
     classifiers=[
         'Development Status :: 5 - Production/Stable',
